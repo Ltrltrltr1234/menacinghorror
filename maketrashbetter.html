@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Best website ever</title>
+        <link href="actinsus.css" rel="stylesheet">
+        <script>
+            function loadtheme(){
+                if (localStorage.customcolor1 !== undefined){
+                document.body.style.backgroundImage = "linear-gradient(135deg, "+ localStorage.customcolor1+", "+localStorage.customcolor2+")";}
+            }
+            function settheme(){
+                localStorage.customcolor1="";
+                localStorage.customcolor2="";
+                localStorage.setItem('customcolor1', document.getElementById("bgcolor").value);
+                localStorage.setItem('customcolor2', document.getElementById("bgcolor2").value);
+                loadtheme();
+            }
+            function cleartheme(){
+                localStorage.removeItem("customcolor1");
+                localStorage.removeItem("customcolor2");
+                reload();
+            }
+        </script>
+    </head>
+    <body onload="loadtheme()">
+        <header>
+            <div class="container">
+              <h1 class="logo">make trash look better</h1>
+              <nav>
+                <ul>
+                  <li><a href="index.html#">notes</a></li>
+                  <li><a href="stupidwebsite.html">about</a></li>
+                  <li><a href="#">site preferences</a></li>
+                </ul>
+              </nav>
+            </div>
+        </header>
+        <h1>customise this site</h1>
+        <p>This page gives you the options to customise the site's background colors! If you wish to reset the theme, click Reset to Default and then reload the page. (It is recommended to choose a bright theme as the text color will not be changed.)</p>
+        <h2>Customisation</h2>
+        <form>
+            <p><label for="bgcolor">Background Color 1:</label>
+            <input type="color" id="bgcolor" name="bgcolour" required="true"></p>
+            <p><label for="bgcolor2">Background Color 2:</label>
+            <input type="color" id="bgcolor2" name="bgcolour2" required="true"></p>
+            <button type="submit" onclick="settheme()" id="Beepboop" name="yesnomaybeso">Save Changes</button>
+            </form><p><button onclick="cleartheme()" id="Boopboop" name="nolmao">Reset To Default</button></p>
+        <footer>Made by Leon Zhao 1i3</footer>
+    </body>
+</html>
