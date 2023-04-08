@@ -65,7 +65,7 @@
         for (i=0; i <= localStorage.counter; i++){
           if (localStorage.getItem("text_"+ i) == null)
                continue;
-          if (localStorage.getItem("category_"+i)!=""||localStorage.getItem("category_"+i)!=null){
+          if (localStorage.getItem("category_"+i)!=""&&localStorage.getItem("category_"+i)!=null){
             document.getElementById("categorycontent_"+localStorage.getItem("category_"+i)).innerHTML += "<p><div class=\"note\" id=\"note_" + i + "\"></div></p>";
           }
           else{
