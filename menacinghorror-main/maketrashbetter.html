@@ -1,0 +1,167 @@
+<html>
+    <head>
+        <title>Cool customisation</title>
+        <link href="actinsus.css" rel="stylesheet">
+        <script>
+            function loadtheme(){
+        if (localStorage.customtextcolor1==null){
+          localStorage.customtextcolor1="#000000";
+        }
+        if (localStorage.customtextcolor2==null){
+          localStorage.customtextcolor2="#FFFFFF";
+        }
+        if (localStorage.customcolor1 != null){
+          document.body.style.backgroundImage = "linear-gradient(135deg, "+ localStorage.customcolor1+", "+localStorage.customcolor2+")";
+        }
+        else{
+          document.body.style.backgroundImage = "linear-gradient(135deg, rgb(225, 103, 225), rgb(102, 222, 222))";
+        }
+        if (localStorage.customtextcolor1 != null){
+          document.body.style.color = localStorage.customtextcolor1;
+        }
+      }
+            function settheme(){
+                localStorage.customcolor1="";
+                localStorage.customcolor2="";
+                localStorage.customtextcolor1="";
+                localStorage.customtextcolor2="";
+                localStorage.setItem('customcolor1', document.getElementById("bgcolor").value);
+                localStorage.setItem('customcolor2', document.getElementById("bgcolor2").value);
+                localStorage.setItem('customtextcolor1', document.getElementById("textcolor").value);
+                localStorage.setItem('customtextcolor2', document.getElementById("textcolor2").value);
+                if (localStorage.notesize<0.5){
+                    localStorage.notesize=0.5;
+                }
+                if (localStorage.notesize>2){
+                    localStorage.notesize=2;
+                }
+                loadtheme();
+            }
+            function cleartheme(){
+                localStorage.removeItem("customcolor1");
+                localStorage.removeItem("customcolor2");
+                localStorage.removeItem("customtextcolor1");
+                localStorage.removeItem("customtextcolor2");
+                loadtheme();
+            }
+            function preset(preset){
+                if (preset==0){
+                    cleartheme();
+                }
+                if (preset==1){
+                    localStorage.customcolor1="#FF3737";
+                    localStorage.customcolor2="#13FF08";
+                    localStorage.customtextcolor1="#500000";
+                    localStorage.customtextcolor2="FFFFFF";
+                }
+                if (preset==2){
+                    localStorage.customcolor1="#FFB7B7";
+                    localStorage.customcolor2="#ff5dd9";
+                    localStorage.customtextcolor1="#8F007B";
+                    localStorage.customtextcolor2="#FFC3E0";
+                }
+                if (preset==3){
+                    localStorage.customcolor1="#FFFB70";
+                    localStorage.customcolor2="#EC0000";
+                    localStorage.customtextcolor1="#930033";
+                    localStorage.customtextcolor2="#FFE675";
+                }
+                if (preset==4){
+                    localStorage.customcolor1="#19191C";
+                    localStorage.customcolor2="#5A5377";
+                    localStorage.customtextcolor1="#D5D5D5";
+                    localStorage.customtextcolor2="#373640";
+                }
+                if (preset==5){
+                    localStorage.customcolor1="#9DFFD7";
+                    localStorage.customcolor2="#1494EC";
+                    localStorage.customtextcolor1="#1E1D71";
+                    localStorage.customtextcolor2="#ADFFEA";
+                }
+                if (preset==6){
+                    localStorage.customcolor1="#9DFFD7";
+                    localStorage.customcolor2="#B585FF";
+                    localStorage.customtextcolor1="4C54AF";
+                    localStorage.customtextcolor2="#BBE2FF";
+                }
+                if (preset==7){
+                    localStorage.customcolor1="#0F0021";
+                    localStorage.customcolor2="#3D1869";
+                    localStorage.customtextcolor1="#9E4CFF";
+                    localStorage.customtextcolor2="#31005C";
+                }
+                if (preset==7){
+                    localStorage.customcolor1="#0F0021";
+                    localStorage.customcolor2="#3D1869";
+                    localStorage.customtextcolor1="#9E4CFF";
+                    localStorage.customtextcolor2="#31005C";
+                }
+                if (preset==8){
+                    localStorage.customcolor1="#0FCD88";
+                    localStorage.customcolor2="#B1FC5C";
+                    localStorage.customtextcolor1="#F8FFF8";
+                    localStorage.customtextcolor2="#007F51";
+                }
+                if (preset==9){
+                    localStorage.customcolor1="#FF1B1B";
+                    localStorage.customcolor2="#C6003F";
+                    localStorage.customtextcolor1="#520029";
+                    localStorage.customtextcolor2="#FFA9A9";
+                }
+                if (preset==10){
+                    localStorage.customcolor1="#e7afff";
+                    localStorage.customcolor2="#5f5d00";
+                    localStorage.customtextcolor1="#FF5900";
+                    localStorage.customtextcolor2="#FF00DC";
+                }
+                loadtheme();
+            }
+        </script>
+    </head>
+    <body onload="loadtheme()">
+        <header>
+            <div class="container">
+              <h1 class="logo">cool customisation</h1>
+              <nav>
+                <ul>
+                  <li><a href="index.html#">notes</a></li>
+                  <li><a href="stupidwebsite.html">about</a></li>
+                  <li><a href="#">site preferences</a></li>
+                </ul>
+              </nav>
+            </div>
+        </header>
+        <div class="main">
+        <h1>customise this site</h1>
+        <p>This page gives you the options to customise the site's background and text colors! If you wish to reset the theme, click Reset to Default.</p>
+        <h2>Customisation</h2>
+        <form>
+            <p><label for="bgcolor">Background Color 1:</label>
+            <input type="color" id="bgcolor" name="bgcolour" required="true"></p>
+            <p><label for="bgcolor2">Background Color 2:</label>
+            <input type="color" id="bgcolor2" name="bgcolour2" required="true"></p>
+            <p><label for="textcolor">Primary text color:</label>
+            <input type="color" id="textcolor" name="textcolour" required="true"></p>
+            <p><label for="textcolor2">Secondary text color:</label>
+            <input type="color" id="textcolor2" name="textcolour2" required="true"></p>
+            <button type="submit" onclick="settheme()" id="Beepboop" name="yesnomaybeso">Save Changes</button>
+            <p><button onclick="cleartheme()" id="Boopboop" name="nolmao">Reset To Default</button></p>
+            </form>
+            <p>Note: it is recommended to use a colour contrasting with your background as your primary text colour and a colour contrasting the primary text colour as your secondary text colour.</p>
+            <h3>Presets</h3>
+            <p>In case you need them...?</p>
+            <button class="preset" style="background-image: linear-gradient(135deg, rgb(225, 103, 225), rgb(102, 222, 222));" onclick="preset(0)"><h3>DEFAULT</h3></button>
+            <button class="preset" style="background-image: linear-gradient(135deg, rgb(255, 55, 55), rgb(19, 255, 8));" onclick="preset(1)"><h3>FESTIVE</h3></button>
+            <button class="preset" style="background-image: linear-gradient(135deg, #FFB7B7, #ff5dd9);" onclick="preset(2)"><h3>PROGRAMMER SOCKS</h3></button>
+            <button class="preset" style="background-image: linear-gradient(135deg, #FFFB70, #EC0000);" onclick="preset(3)"><h3>FLAMES</h3></button>
+            <button class="preset" style="background-image: linear-gradient(135deg, #19191C, #5A5377);color:#adadad" onclick="preset(4)"><h3>NOIR</h3></button>
+            <button class="preset" style="background-image: linear-gradient(135deg, #9DFFD7, #1494EC);" onclick="preset(5)"><h3>ATLANTIS</h3></button>
+            <button class="preset" style="background-image: linear-gradient(135deg, #9BFFF7, #B585FF);" onclick="preset(6)"><h3>CERULEAN</h3></button>
+            <button class="preset" style="background-image: linear-gradient(135deg, #0F0021, #3D1869);color:white" onclick="preset(7)"><h3>OBLIVION</h3></button>
+            <button class="preset" style="background-image: linear-gradient(135deg, #0FCD88, #B1FC5C);color:white" onclick="preset(8)"><h3>EVERGREEN</h3></button>
+            <button class="preset" style="background-image: linear-gradient(135deg, #FF1B1B, #C6003F);color:#520029" onclick="preset(9)"><h3>RITUALISTIC SACRIFICE</h3></button>
+            <button class="preset" style="background-image: linear-gradient(135deg, #e7afff, #5f5d00);color:#FF5900" onclick="preset(10)"><h3>TORMENT</h3></button>
+        </div>
+        <footer>Made by Leon Zhao 1i3</footer>
+    </body>
+</html>
